@@ -37,7 +37,7 @@
 
     <header class="header_area">
         <div class="main-menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-sm navbar-light">
                 <a class="navbar-brand" href="#"><img src="./img/Title1.jpg" alt="logo" height="80px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -427,7 +427,8 @@
                                 <!-- <a class="test-popup-link" href="./img/tec1.jpeg">
                                     <img src="./img/tec1.jpeg" alt="portfolio-1" class="img-fluid">
                                 </a> -->
-                                <a href="./project.html">
+                                <a href="./project.html" data-toggle="tooltip" data-html="true"  title="Click here for more info"
+                                    data-placement="bottom">
                                     <img alt="portfolio-1" class="img-fluid" src="./img/tec1.jpeg" >
                                     </a>
                             </div>
@@ -706,31 +707,39 @@
                         
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                    <form id="contactForm" class="single-form quate-form wow fadeInUp" data-toggle="validator">
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                                <input name="name" class="contact-name form-control" id="name" type="text" placeholder="First Name" required>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                        <form id="contactForm" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <input name="name" class="contact-name form-control" id="name" type="text" placeholder="First Name" required>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input name="name" class="contact-email form-control" id="L_name" type="text" placeholder="Last Name" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <input name="name" class="contact-subject form-control" id="email" type="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" id="message" rows="6" placeholder="Your Message" required></textarea>
+                                </div>
+                                <!-- Subject Button -->
+                                <div class="btn-form col-sm-12">
+                                    <button type="submit" class="btn btn-fill btn-block" id="form-submit">Send Message</button>
+                                </div>
+            
+                                
+                            
                             </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input name="name" class="contact-email form-control" id="L_name" type="text" placeholder="Last Name" required>
-                            </div>
-                            <div class="col-sm-12">
-                                <input name="name" class="contact-subject form-control" id="email" type="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="col-sm-12">
-                                <textarea class="contact-message" id="message" rows="6" placeholder="Your Message" required></textarea>
-                            </div>
-                            <!-- Subject Button -->
-                            <div class="btn-form col-sm-12">
-                                <button type="submit" class="btn btn-fill btn-block" id="form-submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
                     
                     </div>
-                    
+                    <div class= "col-lg-6 align-self-center">
+                    <!--Google map-->
+                        <div id="map-container" class="z-depth-1-half map-container mb-5" style="height: 500px">
+                        </div>
+                    </div>
+                </div>
                     
                         
                 
@@ -754,16 +763,42 @@
         <script type= "text/javascript" src="particles.js"></script>
         <script src="jquery.counterup.min.js"></script>
         <script type= "text/javascript" src="app.js"></script>
-        <script src="//maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"></script>
+        <!-- <script src="//maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"></script> -->
             <!-- Custom Scripts-->
             <script src="./js/map-init.js"></script>
         <!-- Jquesry js file  -->
         <script src="./js/jquery.3.4.1.js"></script>
-
+    
     <!--  Bootstrap js file  -->
     <script src="./js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="js/popper.min.js"></script> -->
     <script src="./js/aos.js"></script>
-
+    <!--Google Maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAk72evyz0Msf_cqsr_RO_fakjIUbG9bc"></script>
+        <!-- Google Maps settings -->
+    <script>
+        // Regular map
+        function regular_map() {
+        var var_location = new google.maps.LatLng(38.762238, -77.502665);
+    
+        var var_mapoptions = {
+            center: var_location,
+            zoom: 7
+        };
+    
+        var var_map = new google.maps.Map(document.getElementById("map-container"),
+            var_mapoptions);
+    
+        var var_marker = new google.maps.Marker({
+            position: var_location,
+            map: var_map,
+            title: "Manassas, Virginia"
+        });
+        }
+    
+        // Initialize maps
+        google.maps.event.addDomListener(window, 'load', regular_map);
+    </script>
     <!--  isotope js library  -->
     <script src="./vendor/isotope/isotope.min.js"></script>
 

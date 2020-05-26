@@ -1,4 +1,7 @@
 
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
 let nCount = selector => {
     $(selector).each(function () {
       $(this)
